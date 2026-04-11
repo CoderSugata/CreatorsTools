@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SM's Free Tools for Creators</title>
+    <!-- Link to external CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Link to external JS (defer ensures HTML loads before JS runs) -->
+    <!-- <script src="script.js" defer></script> -->
+</head>
+
+<body>
+
+    <div class="app">
+        <aside class="sidebar">
+            <div class="logo">Utility Tools</div>
+            <div class="nav-item active">MCQ Tool</div>
+        </aside>
+
+        <main class="main">
+            <div class="topbar">
+                <h2>Dashboard</h2>
+                <button class="btn-primary" id="themeBtn">🌙 Dark</button>
+            </div>
+
+            <div class="stats">
+                <div class="stat">Questions: <span id="q">0</span></div>
+                <div class="stat">Words: <span id="w">0</span></div>
+                <div class="stat">Removed: <span id="r">0</span></div>
+            </div>
+
+            <div class="panel">
+                <h3>MCQ Formatter</h3>
+                <br>
+                <div class="toggle-group">
+                    <!-- Added data-key attributes to handle logic in JS -->
+                    <div class="toggle" data-key="dup">Remove Duplicates</div>
+                    <div class="toggle" data-key="shuffle">Shuffle Randomly</div>
+                    <div class="toggle" data-key="number">Auto Number</div>
+                    <div class="toggle" data-key="clean">Clean Text</div>
+                </div>
+
+                <div class="editor">
+                    <textarea id="input" placeholder="Paste your unformatted questions here..."></textarea>
+                    <textarea id="output" placeholder="Formatted output will appear here..." readonly></textarea>
+                </div>
+
+                <div class="action-row">
+                    <button class="btn-secondary process-btn" id="clearBtn">Clear</button>
+                    <button class="btn-secondary process-btn" id="copyBtn">Copy Output</button>
+                    <button class="btn-primary process-btn" id="processBtn">Process Data</button>
+                </div>
+            </div>
+
+            <div class="footer">
+                <div class="footer-content">
+                    <div class="footer-left">Made With ❤️ by SM <span class="footer-dot"></span> Free forever</div>
+                    <button class="donate-btn" id="footerDonateBtn">Donate ❤️</button>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <button class="floating-donate" id="floatingDonateBtn">❤️</button>
+
+    <div class="modal" id="donateModal">
+        <div class="modal-box">
+            <h3>Support This Tool ❤️</h3>
+            <p style="font-size:12px;color:var(--muted)">Scan & Pay via UPI</p>
+            <img src="upi.jpeg" alt="UPI QR Code">
+            <button id="closeDonateBtn">Close</button>
+        </div>
+    </div>
+
+    <head>
+        <script src="script.js" defer></script>
+    </head>
+
+</body>
+
+</html>
