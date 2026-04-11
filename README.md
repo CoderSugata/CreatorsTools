@@ -1,2 +1,164 @@
-# UtilityTools
-Free MCQ tool for YouTube creators. Format, shuffle, clean and generate MCQs instantly
+# 🚀 UtilityTools – Free MCQ Generator & Formatter for YouTube Creators
+
+> ⚡ Format, clean, shuffle, and generate MCQs instantly — the ultimate free tool for **YouTube creators, educators, and competitive exam content makers**.
+
+
+
+## 🌐 Live Website 
+
+👉 https://codersugata.github.io/UtilityTools/
+
+
+
+## 🔍 Keywords (SEO)
+
+**MCQ generator, MCQ formatter, quiz maker tool, YouTube MCQ tool, question shuffler, duplicate remover, exam question generator, GK quiz creator, MCQ cleaner, online quiz tools**
+
+
+
+## ✨ Features
+
+* ✅ Remove duplicate MCQs instantly
+* 🔀 Shuffle questions randomly
+* 🧹 Clean messy question text
+* 🔢 Auto-add numbering to questions
+* ⚡ Fast & lightweight (runs in browser)
+* 📱 Fully mobile responsive
+* 🔒 No data storage (privacy-friendly)
+
+---
+
+## 🎯 Who is this for?
+
+This tool is perfect for:
+
+* 📺 YouTube creators (MCQ / GK / Quiz channels)
+* 📚 Teachers & educators
+* 🧠 Competitive exam aspirants
+* 📢 Telegram / WhatsApp quiz admins
+* 📝 Content creators handling bulk questions
+
+---
+
+## ❤️ Support & Donations
+
+If this tool saves your time or helps your content grow, consider supporting:
+
+💸 **UPI Donation**
+You can donate via UPI using the QR image (`upi.jpeg`) in this repo.
+
+🙏 Your support helps:
+
+* Improve features
+* Add new tools
+* Keep this project free
+
+---
+
+## 🛠️ Tech Stack
+
+* **HTML5**
+* **CSS3**
+* **Vanilla JavaScript**
+
+---
+
+## 📂 Project Structure
+
+```bash
+UtilityTools/
+│
+├── index.html
+├── style.css
+├── script.js
+├── upi.jpeg
+├── .nojekyll
+└── README.md
+```
+
+---
+
+## 🚀 How to Use
+
+1. Paste your MCQs into the input box
+2. Select the operation:
+
+   * Format
+   * Shuffle
+   * Clean
+   * Add numbering
+3. Click **Process**
+4. Copy the output
+
+---
+
+## ⚡ Deployment (GitHub Pages)
+
+This project is hosted using **GitHub Pages**.
+
+To deploy:
+
+1. Fork this repository
+2. Go to **Settings → Pages**
+3. Select:
+
+   * Branch: `main`
+   * Folder: `/ (root)`
+4. Save and wait for deployment
+
+---
+
+## ⚠️ Important
+
+`.nojekyll` is included to ensure GitHub serves files directly without processing.
+
+---
+
+## 🌟 Why this tool?
+
+Unlike heavy tools, this is:
+
+* ⚡ Instant (no loading time)
+* 🔒 Private (no server involved)
+* 🎯 Focused on MCQ creators
+* 💡 Built for real-world YouTube workflows
+
+---
+
+## 🔮 Future Roadmap
+
+* 🌙 Dark/Light mode
+* 📊 Advanced formatting options
+* 📄 Export to PDF / DOC
+* 🤖 AI-based MCQ generator
+* ☁️ Save & manage questions
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome!
+
+* Fork the repo
+* Make improvements
+* Submit a pull request
+
+---
+
+## ⭐ Show Your Support
+
+If you like this project:
+
+* ⭐ Star this repository
+* 🔁 Share with creators
+* 💬 Give feedback
+
+---
+
+## 📄 License
+
+Free to use and modify.
+
+---
+
+**Built with ❤️ by SM for creators & learners**
