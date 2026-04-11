@@ -127,7 +127,6 @@ Unlike heavy tools, this is:
 
 ## 🔮 Future Roadmap
 
-* 🌙 Dark/Light mode
 * 📊 Advanced formatting options
 * 📄 Export to PDF / DOC
 * 🤖 AI-based MCQ generator
