@@ -42,18 +42,14 @@ This tool is perfect for:
 
 ## ❤️ Support & Donations
 
-If this tool saves your time or helps your content grow, consider supporting:
+<p align="center">
+  <img src="upi.jpeg" width="220"/>
+</p>
 
-💸 **UPI Donation**
-You can donate via UPI using the QR image (`upi.jpeg`) in this repo.
-
-🙏 Your support helps:
-
-* Improve features
-* Add new tools
-* Keep this project free
-
----
+<p align="center">
+  <b>💸 Support this project</b><br>
+  Scan to donate via UPI ❤️
+</p>
 
 ## 🛠️ Tech Stack
 
