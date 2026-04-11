@@ -5,52 +5,122 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SM's Free Tools for Creators</title>
-    <!-- Link to external CSS -->
     <link rel="stylesheet" href="style.css">
-    <!-- Link to external JS (defer ensures HTML loads before JS runs) -->
-    <!-- <script src="script.js" defer></script> -->
+    <script src="script.js" defer></script>
 </head>
 
 <body>
-
     <div class="app">
+        <!-- Sidebar Navigation -->
         <aside class="sidebar">
             <div class="logo">Utility Tools</div>
-            <div class="nav-item active">MCQ Tool</div>
+            <div class="nav-item active" data-target="mcq">MCQ Formatter</div>
+            <div class="nav-item" data-target="yt">YT Tags Generator</div>
+            <div class="nav-item" data-target="hash">Hashtag Generator</div>
         </aside>
 
         <main class="main">
             <div class="topbar">
-                <h2>Dashboard</h2>
+                <h2 id="view-title">Dashboard</h2>
                 <button class="btn-primary" id="themeBtn">🌙 Dark</button>
             </div>
 
-            <div class="stats">
-                <div class="stat">Questions: <span id="q">0</span></div>
-                <div class="stat">Words: <span id="w">0</span></div>
-                <div class="stat">Removed: <span id="r">0</span></div>
+            <!-- VIEW 1: MCQ Tool -->
+            <div id="view-mcq" class="view active">
+                <div class="stats">
+                    <div class="stat">Questions: <span id="mcq-q">0</span></div>
+                    <div class="stat">Words: <span id="mcq-w">0</span></div>
+                    <div class="stat">Removed: <span id="mcq-r">0</span></div>
+                </div>
+
+                <div class="panel">
+                    <h3>MCQ Formatter</h3><br>
+                    <div class="toggle-group">
+                        <div class="toggle" data-tool="mcq" data-key="dup">Remove Duplicates</div>
+                        <div class="toggle" data-tool="mcq" data-key="shuffle">Shuffle Randomly</div>
+                        <div class="toggle" data-tool="mcq" data-key="number">Auto Number</div>
+                        <div class="toggle" data-tool="mcq" data-key="clean">Clean Text</div>
+                    </div>
+
+                    <div class="editor">
+                        <textarea id="mcq-input" placeholder="Paste your unformatted questions here..."></textarea>
+                        <textarea id="mcq-output" placeholder="Formatted output will appear here..."
+                            readonly></textarea>
+                    </div>
+
+                    <div class="action-row">
+                        <button class="btn-secondary process-btn" onclick="clearTool('mcq')">Clear</button>
+                        <button class="btn-secondary process-btn" id="mcq-copy"
+                            onclick="copyOutput('mcq-output', 'mcq-copy')">Copy Output</button>
+                        <button class="btn-primary process-btn" onclick="processMcq()">Process Data</button>
+                    </div>
+                </div>
             </div>
 
-            <div class="panel">
-                <h3>MCQ Formatter</h3>
-                <br>
-                <div class="toggle-group">
-                    <!-- Added data-key attributes to handle logic in JS -->
-                    <div class="toggle" data-key="dup">Remove Duplicates</div>
-                    <div class="toggle" data-key="shuffle">Shuffle Randomly</div>
-                    <div class="toggle" data-key="number">Auto Number</div>
-                    <div class="toggle" data-key="clean">Clean Text</div>
+            <!-- VIEW 2: YouTube Tags Tool -->
+            <div id="view-yt" class="view">
+                <div class="stats">
+                    <div class="stat">Total Tags: <span id="yt-count">0</span></div>
+                    <div class="stat">Characters: <span id="yt-chars">0/500</span></div>
                 </div>
 
-                <div class="editor">
-                    <textarea id="input" placeholder="Paste your unformatted questions here..."></textarea>
-                    <textarea id="output" placeholder="Formatted output will appear here..." readonly></textarea>
+                <div class="panel">
+                    <h3>Live Trending Tags Generator</h3>
+                    <p style="color: var(--muted); font-size: 13px; margin-top: 5px; margin-bottom: 15px;">Fetches the
+                        most searched related queries directly from YouTube.</p>
+
+                    <div class="toggle-group">
+                        <div class="toggle" data-tool="yt" data-key="lower">All Lowercase</div>
+                        <div class="toggle" data-tool="yt" data-key="capitalize">Capitalize Words</div>
+                    </div>
+
+                    <div class="editor stacked">
+                        <input type="text" id="yt-input" class="search-bar"
+                            placeholder="Enter your video topic (e.g. 'gaming setup', 'how to bake cake')..." />
+                        <textarea id="yt-output" placeholder="Live generated tags will appear here..."
+                            readonly></textarea>
+                    </div>
+
+                    <div class="action-row">
+                        <button class="btn-secondary process-btn" onclick="clearTool('yt')">Clear</button>
+                        <button class="btn-secondary process-btn" id="yt-copy"
+                            onclick="copyOutput('yt-output', 'yt-copy')">Copy Tags</button>
+                        <button class="btn-primary process-btn" id="yt-generate-btn" onclick="processYt()">🔍 Generate
+                            Tags</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VIEW 3: LIVE Hashtag Tool -->
+            <div id="view-hash" class="view">
+                <div class="stats">
+                    <div class="stat">Hashtags Generated: <span id="hash-count">0</span></div>
                 </div>
 
-                <div class="action-row">
-                    <button class="btn-secondary process-btn" id="clearBtn">Clear</button>
-                    <button class="btn-secondary process-btn" id="copyBtn">Copy Output</button>
-                    <button class="btn-primary process-btn" id="processBtn">Process Data</button>
+                <div class="panel">
+                    <h3>Trending Hashtag Generator</h3>
+                    <p style="color: var(--muted); font-size: 13px; margin-top: 5px; margin-bottom: 15px;">Fetches live
+                        internet trends and converts them into viral hashtags.</p>
+
+                    <div class="toggle-group">
+                        <div class="toggle" data-tool="hash" data-key="pascal">PascalCase</div>
+                        <div class="toggle" data-tool="hash" data-key="lower">All Lowercase</div>
+                    </div>
+
+                    <div class="editor stacked">
+                        <input type="text" id="hash-input" class="search-bar"
+                            placeholder="Enter a topic (e.g. 'current affairs 2026', 'fitness motivation')..." />
+                        <textarea id="hash-output" placeholder="Live internet hashtags will appear here..."
+                            readonly></textarea>
+                    </div>
+
+                    <div class="action-row">
+                        <button class="btn-secondary process-btn" onclick="clearTool('hash')">Clear</button>
+                        <button class="btn-secondary process-btn" id="hash-copy"
+                            onclick="copyOutput('hash-output', 'hash-copy')">Copy Hashtags</button>
+                        <button class="btn-primary process-btn" id="hash-generate-btn" onclick="processHash()">🔍
+                            Generate Hashtags</button>
+                    </div>
                 </div>
             </div>
 
@@ -60,10 +130,10 @@
                     <button class="donate-btn" id="footerDonateBtn">Donate ❤️</button>
                 </div>
             </div>
-
         </main>
     </div>
 
+    <!-- Floating Donate Button & Modal -->
     <button class="floating-donate" id="floatingDonateBtn">❤️</button>
 
     <div class="modal" id="donateModal">
@@ -74,11 +144,6 @@
             <button id="closeDonateBtn">Close</button>
         </div>
     </div>
-
-    <head>
-        <script src="script.js" defer></script>
-    </head>
-
 </body>
 
 </html>
