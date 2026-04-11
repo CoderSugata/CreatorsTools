@@ -4,7 +4,7 @@
 const state = {
     mcq: { dup: false, shuffle: false, number: false, clean: false },
     yt: { lower: false, capitalize: false },
-    hash: { pascal: false, lower: false } 
+    hash: { pascal: false, lower: false }
 };
 
 // --- DOM Elements ---
@@ -47,7 +47,7 @@ toggleDivs.forEach(toggleElement => {
     toggleElement.addEventListener('click', (e) => {
         const tool = e.target.getAttribute('data-tool');
         const key = e.target.getAttribute('data-key');
-        
+
         if (tool === 'hash') {
             if (key === 'pascal' && !state.hash.pascal) state.hash.lower = false;
             if (key === 'lower' && !state.hash.lower) state.hash.pascal = false;
@@ -58,7 +58,7 @@ toggleDivs.forEach(toggleElement => {
         }
 
         state[tool][key] = !state[tool][key];
-        
+
         document.querySelectorAll(`.toggle[data-tool="${tool}"]`).forEach(el => {
             let k = el.getAttribute('data-key');
             el.classList.toggle('active', state[tool][k]);
@@ -72,50 +72,34 @@ document.getElementById('mcq-input').addEventListener('input', processMcq);
 document.getElementById('yt-input').addEventListener('keypress', function (e) { if (e.key === 'Enter') processYt(); });
 document.getElementById('hash-input').addEventListener('keypress', function (e) { if (e.key === 'Enter') processHash(); });
 
-// --- BULLETPROOF INTERNET FETCHING APIS ---
-
-// 1. Primary Proxy Fetch (Rapidtags)
+// --- INTERNET FETCHING APIS ---
 async function fetchFromRapidTags(query, type = 'YouTube') {
     const targetUrl = `https://rapidtags.io/api/generator?query=${encodeURIComponent(query)}&type=${type}`;
-    const proxyUrl = `https://corsproxy.io/?${encodeURIComponent(targetUrl)}`; // More reliable proxy for GitHub Pages
+    const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(targetUrl)}`;
     try {
         const response = await fetch(proxyUrl);
-        if (!response.ok) return null;
-        const text = await response.text();
-        const data = JSON.parse(text); // If Cloudflare blocks it, parsing will fail cleanly
+        const data = await response.json();
         return (data && data.tags) ? data.tags : null;
     } catch (err) {
-        return null; 
+        return null;
     }
 }
 
-// 2. Ad-Blocker Safe Fallback (DuckDuckGo API)
-function fetchDDGSuggest(query) {
+function fetchGoogleSuggest(query) {
     return new Promise((resolve) => {
-        const cbName = 'ddg_cb_' + Math.random().toString(36).substring(2, 9);
-        
-        // Timeout prevents freezing if browser completely blocks the script
-        const timeout = setTimeout(() => { cleanup(); resolve([]); }, 3000); 
-        
-        window[cbName] = function(data) {
-            cleanup();
-            let suggestions = (data && Array.isArray(data)) ? data.map(item => item.phrase) : [];
-            resolve(suggestions);
-        };
-
-        const script = document.createElement('script');
-        script.src = `https://duckduckgo.com/ac/?q=${encodeURIComponent(query)}&callback=${cbName}`;
-        
-        const cleanup = () => {
-            clearTimeout(timeout);
+        const cbName = 'yt_cb_' + Math.random().toString(36).substring(2, 9);
+        window[cbName] = function (data) {
             delete window[cbName];
-            if(document.head.contains(script)) document.head.removeChild(script);
+            document.head.removeChild(script);
+            resolve((data && data[1]) ? data[1].map(item => item[0]) : []);
         };
-
-        script.onerror = () => { cleanup(); resolve([]); };
+        const script = document.createElement('script');
+        script.src = `https://suggestqueries.google.com/complete/search?client=youtube&ds=yt&q=${encodeURIComponent(query)}&jsonp=${cbName}`;
+        script.onerror = () => { document.head.removeChild(script); resolve([]); };
         document.head.appendChild(script);
     });
 }
+
 
 // --- TOOL 1: MCQ Formatter ---
 function processMcq() {
@@ -169,21 +153,20 @@ async function processYt() {
     try {
         let rawTags = await fetchFromRapidTags(keyword, 'YouTube');
 
-        // If proxy fails or is blocked, fallback to DuckDuckGo (Adblocker Safe)
         if (!rawTags || rawTags.length === 0) {
             const currentYear = new Date().getFullYear();
             let responses = await Promise.all([
-                fetchDDGSuggest(keyword),
-                fetchDDGSuggest(keyword + " "),
-                fetchDDGSuggest(keyword + " " + currentYear)
+                fetchGoogleSuggest(keyword),
+                fetchGoogleSuggest(keyword + " "),
+                fetchGoogleSuggest(keyword + " " + currentYear)
             ]);
             rawTags = [...responses[0], ...responses[1], ...responses[2]];
-            rawTags.unshift(keyword); 
+            rawTags.unshift(keyword);
         }
 
         let tags = [];
         let seen = new Set();
-        
+
         rawTags.forEach(t => {
             let lowerMatch = t.toLowerCase();
             if (!seen.has(lowerMatch) && t.length > 1) {
@@ -194,12 +177,9 @@ async function processYt() {
             }
         });
 
-        // If completely offline, just output the user's base words
-        if(tags.length === 0) tags = keyword.split(/\s+/).filter(w => w.length > 1);
-
         let out = tags.join(", ");
         document.getElementById('yt-output').value = out;
-        
+
         document.getElementById('yt-count').textContent = tags.length;
         let charDisplay = document.getElementById('yt-chars');
         charDisplay.textContent = `${out.length}/500`;
@@ -213,7 +193,7 @@ async function processYt() {
     }
 }
 
-// --- TOOL 3: TubeRanker-Style Hashtag Generator ---
+// --- TOOL 3: Tuberanker-Style Hashtag Generator ---
 async function processHash() {
     let keyword = document.getElementById('hash-input').value.trim();
     if (!keyword) return clearTool('hash');
@@ -223,12 +203,12 @@ async function processHash() {
     btn.disabled = true;
 
     try {
-        let rawTags = await fetchFromRapidTags(keyword, 'TikTok'); 
-        
+        let rawTags = await fetchFromRapidTags(keyword, 'TikTok');
+
         if (!rawTags || rawTags.length === 0) {
             let responses = await Promise.all([
-                fetchDDGSuggest(keyword),
-                fetchDDGSuggest(keyword + " ")
+                fetchGoogleSuggest(keyword),
+                fetchGoogleSuggest(keyword + " ")
             ]);
             rawTags = [...responses[0], ...responses[1]];
         }
@@ -237,13 +217,14 @@ async function processHash() {
         let seen = new Set();
 
         const addTag = (text) => {
-            // FILTER: Ignore queries that are too long (more than 4 words).
+            // TUBERANKER FILTER: Ignore queries that are too long (more than 4 words). 
+            // Nobody searches for "#howtomakechocolatecakeathomein10minutes"
             let words = text.trim().split(/\s+/);
-            if (words.length > 4) return; 
+            if (words.length > 4) return;
 
-            // Clean symbols securely
+            // Clean symbols
             let cleaned = text.replace(/[^\p{L}\p{N}\s]+/gu, '').trim();
-            if (!cleaned || cleaned.length < 3) return;
+            if (!cleaned || cleaned.length < 3) return; // Skip tiny/empty tags
 
             let formattedStr = '';
             if (state.hash.pascal) {
@@ -263,16 +244,18 @@ async function processHash() {
             }
         };
 
-        // 1. Add core individual keywords
+        // 1. Add core individual keywords (if keyword is multiple words)
         let coreWords = keyword.split(/\s+/);
-        if(coreWords.length > 1) {
-            coreWords.forEach(w => { if (w.length > 2) addTag(w); });
+        if (coreWords.length > 1) {
+            coreWords.forEach(w => {
+                if (w.length > 2) addTag(w); // Only add words longer than 2 letters (e.g. ignore 'in', 'at')
+            });
         }
-        
-        // 2. Add exact full phrase
+
+        // 2. Add the exact full phrase combined
         addTag(keyword);
 
-        // 3. Add premium internet suggestions
+        // 3. Add the premium filtered internet suggestions
         rawTags.forEach(t => addTag(t));
 
         let out = tags.join(" ");
@@ -303,7 +286,7 @@ function copyOutput(outputId, btnId) {
 function clearTool(tool) {
     document.getElementById(`${tool}-input`).value = "";
     document.getElementById(`${tool}-output`).value = "";
-    
+
     if (tool === 'mcq') {
         document.getElementById('mcq-q').textContent = '0';
         document.getElementById('mcq-w').textContent = '0';
