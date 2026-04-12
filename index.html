@@ -17,6 +17,8 @@
             <div class="nav-item active" data-target="mcq">MCQ Formatter</div>
             <div class="nav-item" data-target="yt">YT Tags Generator</div>
             <div class="nav-item" data-target="hash">Hashtag Generator</div>
+            <div class="nav-item" data-target="fancy">Fancy Text</div>
+            <div class="nav-item" data-target="img">MCQ to Image</div>
         </aside>
 
         <main class="main">
@@ -38,6 +40,7 @@
                     <div class="toggle-group">
                         <div class="toggle" data-tool="mcq" data-key="dup">Remove Duplicates</div>
                         <div class="toggle" data-tool="mcq" data-key="shuffle">Shuffle Randomly</div>
+                        <div class="toggle" data-tool="mcq" data-key="shuffleOpts">Shuffle Options</div>
                         <div class="toggle" data-tool="mcq" data-key="number">Auto Number</div>
                         <div class="toggle" data-tool="mcq" data-key="clean">Clean Text</div>
                     </div>
@@ -120,6 +123,71 @@
                             onclick="copyOutput('hash-output', 'hash-copy')">Copy Hashtags</button>
                         <button class="btn-primary process-btn" id="hash-generate-btn" onclick="processHash()">🔍
                             Generate Hashtags</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VIEW 4: Fancy Text Generator -->
+            <div id="view-fancy" class="view">
+                <div class="panel">
+                    <h3>Social Media Fancy Text</h3>
+                    <p style="color: var(--muted); font-size: 13px; margin-top: 5px; margin-bottom: 15px;">Type normal
+                        text to instantly convert it into cool unicode fonts for Bios, Titles, and Comments.</p>
+
+                    <input type="text" id="fancy-input" class="search-bar" placeholder="Type your text here..." />
+
+                    <div class="fancy-grid" id="fancy-outputs">
+                        <!-- Filled by JS -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- VIEW 5: MCQ to Image Generator -->
+            <div id="view-img" class="view">
+                <div class="panel">
+                    <h3>MCQ to Community Post Image</h3>
+                    <p style="color: var(--muted); font-size: 13px; margin-top: 5px; margin-bottom: 15px;">Turn a
+                        question into a beautiful Glassmorphism square image ready for YouTube Community Polls or
+                        Instagram.</p>
+
+                    <div class="toggle-group">
+                        <div class="toggle active" data-tool="img" data-key="dark" id="img-theme-dark">Dark Mode</div>
+                        <div class="toggle" data-tool="img" data-key="light" id="img-theme-light">Light Mode</div>
+                    </div>
+
+                    <!-- NEW: Gradient Color Swatches -->
+                    <div class="color-picker-wrapper">
+                        <span style="font-size: 13px; color: var(--muted); font-weight: 500;">Glass Aura:</span>
+                        <div class="color-swatch active" data-gradient="sunset"
+                            style="background: linear-gradient(135deg, #f58529, #dd2a7b);" title="Sunset"></div>
+                        <div class="color-swatch" data-gradient="ocean"
+                            style="background: linear-gradient(135deg, #06b6d4, #3b82f6);" title="Ocean"></div>
+                        <div class="color-swatch" data-gradient="neon"
+                            style="background: linear-gradient(135deg, #8b5cf6, #d946ef);" title="Neon"></div>
+                        <div class="color-swatch" data-gradient="nature"
+                            style="background: linear-gradient(135deg, #10b981, #14b8a6);" title="Nature"></div>
+                        <div class="color-swatch" data-gradient="fire"
+                            style="background: linear-gradient(135deg, #ef4444, #eab308);" title="Fire"></div>
+                    </div>
+
+                    <input type="text" id="img-watermark" class="search-bar" style="margin-bottom: 15px;"
+                        placeholder="Custom Watermark..." value="Made By SM's Utility Tools ❤️" />
+
+                    <div class="editor">
+                        <textarea id="img-input"
+                            placeholder="Paste 1 single question here...&#10;&#10;E.g:&#10;Which country is known as the 'Land of the Rising Sun'?&#10;A) Taiwan&#10;B) India&#10;C) Australia&#10;D) Japan"></textarea>
+
+
+                        <div class="canvas-container">
+                            <canvas id="mcq-canvas" width="1080" height="1080"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="action-row">
+                        <button class="btn-secondary process-btn"
+                            onclick="document.getElementById('img-input').value=''; drawMCQImage();">Clear</button>
+                        <button class="btn-primary process-btn" onclick="downloadImage()">⬇️ Download High-Res
+                            Image</button>
                     </div>
                 </div>
             </div>
