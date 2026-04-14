@@ -1,42 +1,73 @@
-# 🚀 Creator's Tools – Free Tools for YouTube Creators & Educators
+<p align="center">
+  <img src="https://img.shields.io/badge/🚀%20Creator's%20Tools-All--in--One%20Toolkit-4762FF?style=for-the-badge" />
+</p>
 
-> ⚡ Format, clean, shuffle, and generate MCQs instantly — the ultimate free tool for **YouTube creators, educators, and competitive exam content makers**.
+<h1 align="center">Creator's Tools</h1>
 
+<p align="center">
+  ⚡ Smart toolkit for creators, educators, and content makers<br>
+  <i>Format • Optimize • Generate • Create</i>
+</p>
 
-
-## 🌐 Live Website 
-
-👉 https://codersugata.github.io/CreatorsTools/
-
-
-
-## 🔍 Keywords (SEO)
-
-**MCQ generator, MCQ formatter, quiz maker tool, YouTube MCQ tool, question shuffler, duplicate remover, exam question generator, GK quiz creator, MCQ cleaner, online quiz tools**
-
-
-
-## ✨ Features
-
-* ✅ Remove duplicate MCQs instantly
-* 🔀 Shuffle questions randomly
-* 🧹 Clean messy question text
-* 🔢 Auto-add numbering to questions
-* ⚡ Fast & lightweight (runs in browser)
-* 📱 Fully mobile responsive
-* 🔒 No data storage (privacy-friendly)
+<p align="center">
+  <a href="https://codersugata.github.io/CreatorsTools/">
+    <img src="https://img.shields.io/badge/🌐%20Live%20Demo-Launch%20App-ff7a00?style=for-the-badge&logo=google-chrome&logoColor=white" />
+  </a>
+</p>
 
 ---
 
-## 🎯 Who is this for?
+## ✨ Overview
 
-This tool is perfect for:
+Creator's Tools is a **fast, lightweight, browser-based toolkit** designed to simplify content workflows — from formatting MCQs to generating SEO tags, hashtags, and social media visuals.
 
-* 📺 YouTube creators (MCQ / GK / Quiz channels)
-* 📚 Teachers & educators
-* 🧠 Competitive exam aspirants
-* 📢 Telegram / WhatsApp quiz admins
-* 📝 Content creators handling bulk questions
+<p align="center">
+  🚀 Fast • 🔒 Private • 📱 Responsive • 🧩 All-in-One
+</p>
+
+---
+
+## 🧰 Features
+
+### 🧠 MCQ Formatter
+- 🧹 Clean and structure raw MCQs  
+- ❌ Remove duplicate questions  
+- 🔀 Shuffle questions and options  
+- 🔢 Auto-number questions  
+- 📊 Live stats  
+
+### 📈 YouTube Tags Generator
+- 🏷️ Generate SEO-friendly tags  
+- 🔎 Smart suggestions (RapidTags + Google Suggest)  
+- 📏 Character limit tracking  
+- 🔤 Formatting options  
+
+### 🔥 Hashtag Generator
+- #️⃣ Generate relevant hashtags  
+- 🎯 Smart keyword expansion  
+- 🔠 Multiple formats (PascalCase / lowercase)  
+
+### 🎨 Fancy Text Generator
+- ✍️ Convert text into stylish Unicode fonts  
+- 🅰️ Bold, Italic, Monospace, Script  
+- 📋 One-click copy  
+
+### 🖼️ MCQ Image Generator
+- 🧾 Convert MCQs into shareable images  
+- 🌙 Dark / ☀️ Light themes  
+- 🎨 Gradient styles  
+- ✍️ Custom watermark  
+- 📥 Export as PNG  
+
+---
+
+## 🎯 Who It's For
+
+- 📺 YouTube Quiz / GK creators  
+- 📚 Teachers & educators  
+- 🧠 Competitive exam preparation  
+- 📢 Social media creators  
+- 📝 Bulk MCQ processors  
 
 ---
 
@@ -51,109 +82,54 @@ This tool is perfect for:
   Scan to donate via UPI ❤️
 </p>
 
+---
+
+## ⚡ Highlights
+
+- 🌐 100% browser-based  
+- 🔒 No data storage (privacy-friendly)  
+- ⚡ Fast and lightweight  
+- 📱 Fully responsive design  
+- 🧩 Multiple tools in one place  
+
+---
+
 ## 🛠️ Tech Stack
 
-* **HTML5**
-* **CSS3**
-* **Vanilla JavaScript**
+- 🌐 HTML  
+- 🎨 CSS  
+- ⚙️ JavaScript (Vanilla)  
+- 🖼️ Canvas API  
 
 ---
 
 ## 📂 Project Structure
 
-```bash
-UtilityTools/
-│
-├── index.html
-├── style.css
-├── script.js
-├── upi.jpeg
-├── .nojekyll
-└── README.md
-```
+CreatorsTools/  
+├── index.html  
+├── style.css  
+├── script.js  
+├── upi.jpeg  
+└── README.md  
 
 ---
 
-## 🚀 How to Use
+## 👨‍💻 Creator
 
-1. Paste your MCQs into the input box
-2. Select the operation:
+<p align="center">
+  <a href="https://github.com/CoderSugata">
+    <img src="https://img.shields.io/badge/👨‍💻%20Created%20by-S%20M-ff7a00?style=for-the-badge" />
+  </a>
+</p>
 
-   * Format
-   * Shuffle
-   * Clean
-   * Add numbering
-3. Click **Process**
-4. Copy the output
-
----
-
-## ⚡ Deployment (GitHub Pages)
-
-This project is hosted using **GitHub Pages**.
-
-To deploy:
-
-1. Fork this repository
-2. Go to **Settings → Pages**
-3. Select:
-
-   * Branch: `main`
-   * Folder: `/ (root)`
-4. Save and wait for deployment
+<p align="center">
+  <a href="https://github.com/CoderSugata">
+</p>
 
 ---
 
-## ⚠️ Important
+## ⭐ Final Note
 
-`.nojekyll` is included to ensure GitHub serves files directly without processing.
-
----
-
-## 🌟 Why this tool?
-
-Unlike heavy tools, this is:
-
-* ⚡ Instant (no loading time)
-* 🔒 Private (no server involved)
-* 🎯 Focused on MCQ creators
-* 💡 Built for real-world YouTube workflows
-
----
-
-## 🔮 Future Roadmap
-
-* 📊 Advanced formatting options
-* 📄 Export to PDF / DOC
-* 🤖 AI-based MCQ generator
-* ☁️ Save & manage questions
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome!
-
-* Fork the repo
-* Make improvements
-* Submit a pull request
-
----
-
-## ⭐ Show Your Support
-
-If you like this project:
-
-* ⭐ Star this repository
-* 🔁 Share with creators
-* 💬 Give feedback
-
----
-
-## 📄 License
-
-Free to use and modify.
-
----
-
-**Built with ❤️ by SM for creators & learners**
+<p align="center">
+  ❤️ Built for creators — simple, powerful, and free forever. Give it a ⭐
+</p>
