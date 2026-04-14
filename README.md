@@ -2,7 +2,7 @@
   <img src="https://img.shields.io/badge/🚀%20Creator's%20Tools-All--in--One%20Toolkit-4762FF?style=for-the-badge" />
 </p>
 
-<h1 align="center">Creator's Tools</h1>
+<h1 align="center"> Creator's Tools</h1>
 
 <p align="center">
   ⚡ Smart toolkit for creators, educators, and content makers<br>
@@ -46,52 +46,28 @@
 Creator's Tools is a **fast, lightweight, browser-based toolkit** designed to simplify content workflows — from formatting MCQs to generating SEO tags, hashtags, and social media visuals.
 
 <p align="center">
-  🚀 Fast • 🔒 Private • 📱 Responsive • 🧩 All-in-One
+  <b>🚀 Fast • 🔒 Private • 📱 Responsive • 🧩 All-in-One</b>
 </p>
 
 ---
 
 ## 🧰 Features
 
-### 🧠 MCQ Formatter
-- 🧹 Clean and structure raw MCQs  
-- ❌ Remove duplicate questions  
-- 🔀 Shuffle questions and options  
-- 🔢 Auto-number questions  
-- 📊 Live stats  
-
-### 📈 YouTube Tags Generator
-- 🏷️ Generate SEO-friendly tags  
-- 🔎 Smart suggestions (RapidTags + Google Suggest)  
-- 📏 Character limit tracking  
-- 🔤 Formatting options  
-
-### 🔥 Hashtag Generator
-- #️⃣ Generate relevant hashtags  
-- 🎯 Smart keyword expansion  
-- 🔠 Multiple formats (PascalCase / lowercase)  
-
-### 🎨 Fancy Text Generator
-- ✍️ Convert text into stylish Unicode fonts  
-- 🅰️ Bold, Italic, Monospace, Script  
-- 📋 One-click copy  
-
-### 🖼️ MCQ Image Generator
-- 🧾 Convert MCQs into shareable images  
-- 🌙 Dark / ☀️ Light themes  
-- 🎨 Gradient styles  
-- ✍️ Custom watermark  
-- 📥 Export as PNG  
+- 🧠 **MCQ Formatter** – Clean, deduplicate, shuffle, auto-number, and view stats  
+- 📈 **YouTube Tags Generator** – Generate SEO-friendly tags with smart suggestions  
+- 🔥 **Hashtag Generator** – Create relevant hashtags with intelligent expansion  
+- 🎨 **Fancy Text Generator** – Convert text into stylish Unicode fonts (1-click copy)  
+- 🖼️ **MCQ Image Generator** – Export MCQs as shareable images with themes  
 
 ---
 
 ## 🎯 Who It's For
 
-- 📺 YouTube Quiz / GK creators  
-- 📚 Teachers & educators  
+- 📺 YouTube quiz & GK creators  
+- 📚 Teachers and educators  
 - 🧠 Competitive exam preparation  
 - 📢 Social media creators  
-- 📝 Bulk MCQ processors  
+- 📝 Bulk MCQ processing  
 
 ---
 
@@ -138,11 +114,11 @@ CreatorsTools/
 
 ---
 
-## 👨‍💻 Creator
+## 👨‍💻 Creator 
 
 <p align="center">
   <a href="https://github.com/CoderSugata">
-    <img src="https://img.shields.io/badge/👨‍💻%20Created%20by-S%20M-ff7a00?style=for-the-badge" />
+    <img src="https://img.shields.io/badge/👨‍💻%20Created%20by-S%20M-E0123B?style=for-the-badge" />
   </a>
 </p>
 
@@ -156,4 +132,9 @@ CreatorsTools/
 
 <p align="center">
   ❤️ Built for creators — simple, powerful, and free forever. Give it a ⭐
+</p>
+
+
+<p align="center">
+  <img src="https://komarev.com/ghpvc/?username=CoderSugata&label=👀%20Repo%20Views&color=47D119&style=for-the-badge" />
 </p>
