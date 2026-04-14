@@ -17,6 +17,30 @@
 
 ---
 
+## 📸 Preview
+
+### 🧠 MCQ Formatter
+<p align="center">
+  <img src="assets/mcq.png" width="800"/>
+</p>
+
+### 📈 Tags & Hashtags Generator
+<p align="center">
+  <img src="assets/tags.png" width="800"/>
+</p>
+
+### 🎨 Fancy Text Generator
+<p align="center">
+  <img src="assets/fancy.png" width="800"/>
+</p>
+
+### 🖼️ MCQ Image Generator
+<p align="center">
+  <img src="assets/image.png" width="800"/>
+</p>
+
+---
+
 ## ✨ Overview
 
 Creator's Tools is a **fast, lightweight, browser-based toolkit** designed to simplify content workflows — from formatting MCQs to generating SEO tags, hashtags, and social media visuals.
