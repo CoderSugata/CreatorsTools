@@ -98,8 +98,7 @@ Creator's Tools is a **fast, lightweight, browser-based toolkit** designed to si
 
 - 🌐 HTML  
 - 🎨 CSS  
-- ⚙️ JavaScript (Vanilla)  
-- 🖼️ Canvas API  
+- ⚙️ JavaScript  
 
 ---
 
