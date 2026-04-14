@@ -74,12 +74,16 @@ Creator's Tools is a **fast, lightweight, browser-based toolkit** designed to si
 ## ❤️ Support & Donations
 
 <p align="center">
-  <img src="upi.jpeg" width="220"/>
+  <img src="https://img.shields.io/badge/Support%20This%20Project-UPI%20Donation-ff4d4d?style=for-the-badge" />
+</p>
+
+<p align="center">
+  <img src="upi.jpeg" width="220" style="border-radius:12px; border:3px solid #ff4d4d; padding:6px; background:linear-gradient(135deg,#ff7a00,#ff004d);" />
 </p>
 
 <p align="center">
   <b>💸 Support this project</b><br>
-  Scan to donate via UPI ❤️
+  <i>Scan to donate via UPI ❤️</i>
 </p>
 
 ---
