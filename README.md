@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  <a href="https://codersugata.github.io/CreatorsTools/">
+  <a href="https://creatorstools.netlify.app/">
     <img src="https://img.shields.io/badge/🌐%20Live%20Demo-Launch%20App-ff7a00?style=for-the-badge&logo=google-chrome&logoColor=white" />
   </a>
 </p>
