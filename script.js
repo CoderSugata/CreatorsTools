@@ -2,7 +2,7 @@
 
 // --- State Management ---
 const state = {
-    mcq: { dup: false, shuffle: false, shuffleOpts: false, number: false, clean: false, removeOpts: false },
+    mcq: { dup: false, shuffle: false, shuffleOpts: false, number: false, removeNum: false, clean: false, removeOpts: false },
     yt: { lower: false, capitalize: false },
     hash: { pascal: false, lower: false },
     imgTheme: 'dark',
@@ -48,6 +48,10 @@ document.querySelectorAll('.toggle').forEach(toggleElement => {
         const tool = e.target.getAttribute('data-tool');
         const key = e.target.getAttribute('data-key');
 
+        if (tool === 'mcq') {
+            if (key === 'number' && !state.mcq.number) state.mcq.removeNum = false;
+            if (key === 'removeNum' && !state.mcq.removeNum) state.mcq.number = false;
+        }
         if (tool === 'hash') {
             if (key === 'pascal' && !state.hash.pascal) state.hash.lower = false;
             if (key === 'lower' && !state.hash.lower) state.hash.pascal = false;
@@ -69,6 +73,10 @@ document.querySelectorAll('.toggle').forEach(toggleElement => {
             let k = el.getAttribute('data-key');
             el.classList.toggle('active', state[tool][k]);
         });
+
+        if (tool === 'mcq' && document.getElementById('mcq-input').value.trim()) {
+            processMcq();
+        }
     });
 });
 
@@ -246,8 +254,14 @@ function processMcq() {
         blocks = blocks.map(b => shuffleMcqInternals(b));
     }
 
+    const qNumRegex = /^\s*(?:(?:Question|Q\s*\.?\s*No\.?|Qn|Q)\s*\.?\s*\d+|[\(\[]\d+[\)\]]|\d{1,3})\s*[\.\:\)\-]?\s*/i;
+
+    if (state.mcq.removeNum) {
+        blocks = blocks.map(b => b.replace(qNumRegex, ''));
+    }
+
     if (state.mcq.number) {
-        blocks = blocks.map((b, i) => `${i + 1}. ${b.replace(/^(Q?\d+[\.\)]\s*)/i, '')}`);
+        blocks = blocks.map((b, i) => `${i + 1}. ${b.replace(qNumRegex, '')}`);
     }
 
     let out = blocks.join("\n\n");
