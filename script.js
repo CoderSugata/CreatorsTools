@@ -73,10 +73,6 @@ document.querySelectorAll('.toggle').forEach(toggleElement => {
             let k = el.getAttribute('data-key');
             el.classList.toggle('active', state[tool][k]);
         });
-
-        if (tool === 'mcq' && document.getElementById('mcq-input').value.trim()) {
-            processMcq();
-        }
     });
 });
 
